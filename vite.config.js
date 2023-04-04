@@ -7,6 +7,10 @@ export default defineConfig({
   root: "src/main/js",
   base: "/",
   publicDir: "/src/main/resources/static",
+  server: {
+    port: 5173,
+    strictPort: true
+  }
   build: {
     assetsDir: "/src/main/resources/assets"
   }
