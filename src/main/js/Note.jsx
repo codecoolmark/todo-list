@@ -1,3 +1,6 @@
 export default function Note({ note }) {
-    return <>{note.text}</>
+    return <span>
+        <input type={"checkbox"} checked={note.done}/>
+        {note.text}
+    </span>
 }
