@@ -27,29 +27,28 @@ describe("Note", () => {
 
     it("clicking the checkbox calls the onChanged callback (selected - deselect)", async () => {
         const testNote = { text: "This is the text I want to test", done: true };
-        let changedNote;
-        const onChange = (newNote) => changedNote = newNote;
+        const onChange = vi.fn();
 
         const user = userEvent.setup();
         render(<Note note={testNote} onChange={onChange}></Note>);
         let checkBox = screen.getByRole("checkbox");
 
         await user.click(checkBox);
-        expect(changedNote.done).toBe(false);
-        expect(changedNote.text).toBe(testNote.text);
+        expect(onChange).toHaveBeenCalled(1)
+        expect(onChange).toHaveBeenCalledWith({ text: testNote.text, done: !testNote.done });
     });
 
     it("clicking the checkbox calls the onChanged callback (deselected - selected)", async () => {
         const testNote = { text: "This is the text I want to test", done: false };
         let changedNote;
-        const onChange = (newNote) => changedNote = newNote
+        const onChange = vi.fn()
 
         const user = userEvent.setup();
         render(<Note note={testNote} onChange={onChange}></Note>);
         const checkBox = screen.queryByRole("checkbox");
 
         await user.click(checkBox);
-        expect(changedNote.done).toBe(true);
-        expect(changedNote.text).toBe(testNote.text);
+        expect(onChange).toHaveBeenCalled(1);
+        expect(onChange).toHaveBeenCalledWith({ text: testNote.text, done: !testNote.done });
     });
 });
