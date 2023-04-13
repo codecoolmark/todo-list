@@ -2,15 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import {createHashRouter, RouterProvider} from "react-router-dom";
-import NotesLists from "./NoteLists.jsx";
-import NoteList from "./NoteList.jsx";
+import pages from "./pages";
 
 const router = createHashRouter([{
     path: "/",
-    element: <NotesLists></NotesLists>
+    element: <pages.NoteLists></pages.NoteLists>
 }, {
     path: "/notelists/:noteListId",
-    element: <NoteList></NoteList>
+    element: <pages.NoteList></pages.NoteList>
 }]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -1,8 +1,8 @@
-import { expect, afterEach } from 'vitest';
+import { expect } from 'vitest';
 import matchers from '@testing-library/jest-dom/matchers';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
-import Note from "../../main/js/Note.jsx";
+import Note from "../../main/js/components/Note.jsx";
 
 expect.extend(matchers);
 

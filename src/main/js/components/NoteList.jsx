@@ -1,11 +1,10 @@
-import {Link, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 
-import api from "./api.js";
+import api from "../api.js";
 import Note from "./Note.jsx";
 
-function NoteList() {
-    const { noteListId } = useParams()
+function NoteList({ noteListId }) {
     const [noteList, setNoteList] = useState(null);
 
 
