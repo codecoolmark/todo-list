@@ -7,11 +7,10 @@ import Note from "./Note.jsx";
 function NoteList({ noteListId }) {
     const [noteList, setNoteList] = useState(null);
 
-
     useEffect(() => {
         const abortController = new AbortController();
 
-        api.fetchNoteList(abortController.signal, noteListId)
+        api.fetchNoteList(null, noteListId)
             .then(noteList => setNoteList(noteList));
         return () => abortController.abort();
     }, [noteListId])
@@ -23,7 +22,7 @@ function NoteList({ noteListId }) {
         <ul>
             {noteList?.notes?.map(note => <li key={note.id}><Note note={note}></Note></li>)}
         </ul>
-        <Link to={"/"}>All lists</Link>
+        <a href={"/"}>All lists</a>
     </div>;
 }
 

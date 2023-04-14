@@ -10,7 +10,7 @@ describe("Note", () => {
     it("shows the text of the note", () => {
         const testNote = { text: "This is the text I want to test", done: false }
         render(<Note note={testNote}></Note>)
-        expect(screen.queryByText(testNote.text)).not.toBeNull().toBeUndefined();
+        expect(screen.queryByText(testNote.text)).not.toBeNull();
     });
 
     it("checkbox is unchecked if the note is not done", () => {
